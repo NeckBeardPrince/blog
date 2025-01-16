@@ -33,8 +33,8 @@ jobs:
 
       - name: Install dependencies
         run: |-
-          pip install -U pip -r requirements.txt
-          sudo apt-get install -y libcairo2-dev libfreetype6-dev libffi-dev libjpeg-dev libpng-dev libz-dev pngquant
+          pip install --quiet -U pip -r requirements.txt
+          sudo apt-get install -y -qq libcairo2-dev libfreetype6-dev libffi-dev libjpeg-dev libpng-dev libz-dev pngquant
 
       - name: Deploy docs
         run: mkdocs gh-deploy --force
