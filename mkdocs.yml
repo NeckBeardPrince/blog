@@ -4,6 +4,11 @@
 site_name: Blog
 site_url: https://blog.iamadam.dev
 
+remote_branch: gh-pages
+remote_name: origin
+repo_name: GitHub
+repo_url: https://github.com/NeckBeardPrince/blog
+
 extra:
   social:
     - icon: fontawesome/brands/spotify
@@ -12,9 +17,38 @@ extra:
 
 theme:
   name: material
+  icon:
+    repo: fontawesome/brands/github
   features:
+    - announce.dismiss
+    - content.action.edit
+    - content.action.view
+    - content.code.annotate
+    - content.code.copy
+    - content.code.select
+    - content.tabs.link
+    - content.tooltips
+    - content.footnote.tooltips
     - header.autohide
+    - navigation.expand
     # - navigation.footer
+    - navigation.indexes
+    - navigation.instant
+    - navigation.instant.prefetch
+    - navigation.instant.progress
+    # - navigation.instant.preview
+    - navigation.path
+    - navigation.prune
+    - navigation.sections
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.top
+    - navigation.tracking
+    - search.highlight
+    - search.share
+    - search.suggest
+    - toc.follow
+    # - toc.integrate
   palette:
     # Palette toggle for automatic mode
     - media: (prefers-color-scheme)
@@ -36,18 +70,20 @@ theme:
       toggle:
         icon: material/brightness-4
         name: Switch to system preference
-  font:
-    code: Roboto Mono
-    text: Roboto
+  # font:
+  #   code: Roboto Mono
+  #   text: Roboto
 
 plugins:
+  - tags
   - social:
       enabled: true
       cards: true
   - blog:
-      # draft: !ENV [DRAFT, false]
+      draft: !ENV
+        - DRAFT
+        - false
       draft_if_future_date: true
-      # authors_profiles: !ENV [AUTHORS_PROFILE, false]
       post_readtime: true
       blog_toc: true
       post_date_format: long
@@ -62,12 +98,6 @@ plugins:
       minify_css: true
       htmlmin_opts:
         remove_comments: true
-  - tags
-  # - git-revision-date-localized:
-  #     enable_creation_date: true
-  #     enabled: !ENV
-  #       - CI
-  #       - false
-  #     type: date
-  #     fallback_to_build_date: true
-  # - table-reader
+# Allow security.txt
+exclude_docs: |-
+  !.well-known
