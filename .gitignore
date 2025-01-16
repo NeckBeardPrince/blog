@@ -1,0 +1,6 @@
+site
+.cache
+.pre-commit-trivy-cache
+venv
+.env
+todo.lst
